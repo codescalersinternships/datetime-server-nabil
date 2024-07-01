@@ -16,5 +16,5 @@ func GetDate(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 	currentDateTime := time.Now().Format(time.RFC3339)
-	fmt.Fprintf(w, currentDateTime)
+	fmt.Fprint(w, currentDateTime)
 }
