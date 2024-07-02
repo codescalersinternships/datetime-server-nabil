@@ -1,4 +1,4 @@
-module github.com/codescalersinternships/datetime-server-nabil
+module github.com/codescalersinternships/datetime-server-nabil/datetimehttp
 
 go 1.22.4
 

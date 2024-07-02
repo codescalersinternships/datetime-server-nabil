@@ -1,0 +1,17 @@
+version: '3.4'
+services:
+  datetimegin:
+    container_name: datetimeginapp
+    build:
+      context: ./datetimegin/
+      dockerfile: DockerFile
+    ports:
+      - "8091:8090"
+
+  datetimehttp:
+    container_name: datetimehttpapp
+    build:
+      context: ./datetimehttp/
+      dockerfile: DockerFile
+    ports:
+      - "8090:8090"

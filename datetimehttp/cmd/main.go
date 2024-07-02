@@ -11,7 +11,7 @@ import (
 	"syscall"
 	"time"
 
-	date_time "github.com/codescalersinternships/datetime-server-nabil/api/handler"
+	date_time "github.com/codescalersinternships/datetime-server-nabil/datetimehttp/api/handler"
 )
 
 func startHTTPServer(ctx context.Context, wg *sync.WaitGroup) {
