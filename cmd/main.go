@@ -20,8 +20,10 @@ func startHTTPServer(ctx context.Context, wg *sync.WaitGroup) {
 		Addr: ":8090",
 	}
 	go func() {
+		fmt.Println("app running on 8090")
 		http.HandleFunc("/datetime", date_time.GetDate)
 		log.Fatal(http.ListenAndServe(":8090", nil))
+
 	}()
 
 	<-ctx.Done()

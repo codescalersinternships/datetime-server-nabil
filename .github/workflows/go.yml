@@ -26,3 +26,6 @@ jobs:
 
     - name: gofmt
       uses: Jerome1337/gofmt-action@v1.0.5
+
+    - name: test
+      run: go test -v ./...
