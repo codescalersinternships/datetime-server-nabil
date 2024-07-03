@@ -37,10 +37,16 @@ func TestGETDate(t *testing.T) {
 
 		got := response.Result().StatusCode
 
-		assertNotFoundMsg(t, got)
+		assertUnallowedMethod(t, got)
 	})
 }
 
+func assertUnallowedMethod(t *testing.T, got int) {
+	t.Helper()
+	if got != http.StatusMethodNotAllowed {
+		t.Errorf("expected status code 405 but got %d", got)
+	}
+}
 func assertNotFoundMsg(t *testing.T, got int) {
 	t.Helper()
 	if got != http.StatusNotFound {

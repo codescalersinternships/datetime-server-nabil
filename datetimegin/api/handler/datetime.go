@@ -11,7 +11,7 @@ import (
 func SetupRouter() *gin.Engine {
 
 	r := gin.Default()
-
+	r.HandleMethodNotAllowed = true
 	r.GET("/datetime", GetDate)
 
 	return r
