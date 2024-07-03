@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	date_time "github.com/codescalersinternships/datetime-server-nabil/datetimegin/api/handler"
+	date_time "github.com/codescalersinternships/datetime-server-nabil/api/datetimeginhandler"
 	"github.com/fvbock/endless"
 )
 

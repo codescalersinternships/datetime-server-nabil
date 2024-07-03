@@ -14,19 +14,19 @@ linter:
 	golint ./...
 
 http_build_binary:
-	go build ./datetimehttp/api/handler/datetime.go
+	go build ./api/datetimehttphandler/datetime.go
 
 gin_build_binary:
-	go build ./datetimegin/api/handler/datetime.go
+	go build ./api/datetimeginhandler/datetime.go
 
 http_Building the images:
-	docker build -t httpimagename -f ./datetimehttp/DockerFile .
+	docker build -t datetimeapphttp -f ./DockerFile-http .
 
 gin_Building the images:
-	docker build -t ginimagename -f ./datetimegin/DockerFile .
+	docker build -t datetimeappgin -f ./DockerFile-gin .
 
-Launching_the_containers:
-	docker run --name myhttpappname -d -p 8090:8090 httpimagename
+Launching_the_http_containers:
+	docker run --name myhttpappname -d -p 8090:8090 datetimeapphttp
 
-Launching_the_containers:
-	docker run --name myginappname -d -p 8091:8090 ginimagename
+Launching_the_gin_containers:
+	docker run --name myginappname -d -p 8091:8090 datetimeappgin

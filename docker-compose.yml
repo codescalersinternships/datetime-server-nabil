@@ -3,15 +3,17 @@ services:
   datetimegin:
     container_name: datetimeginapp
     build:
-      context: ./datetimegin/
-      dockerfile: DockerFile
+      context: ./
+      dockerfile: DockerFile-gin
+      target: datetimeservergin
     ports:
       - "8091:8090"
 
   datetimehttp:
     container_name: datetimehttpapp
     build:
-      context: ./datetimehttp/
-      dockerfile: DockerFile
+      context: ./
+      dockerfile: DockerFile-http
+      target: datetimeserverhttp
     ports:
       - "8090:8090"
