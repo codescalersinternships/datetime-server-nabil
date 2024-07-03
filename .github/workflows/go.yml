@@ -21,30 +21,18 @@ jobs:
       with:
         go-version: '1.22.4'
 
-    - name: Run golangci-lint in datetimegin
+    - name: Run golangci-lint
       uses: golangci/golangci-lint-action@v3
-      with:
-        working-directory: datetimegin
-  
-    - name: Run golangci-lint in datetimehttp
-      uses: golangci/golangci-lint-action@v3
-      with:
-        working-directory: datetimehttp
     
-    - name: Run go fmt in datetimegin
+      
+    
+    - name: Run go fmt
       uses: Jerome1337/gofmt-action@v1.0.5
-      with:
-        gofmt-path: './datetimegin/'
 
-    - name: Run go fmt datetimehttp
-      uses: Jerome1337/gofmt-action@v1.0.5
-      with:
-        gofmt-path: './datetimehttp'
 
     - name: Test
       run: |
-        cd datetimegin && go test -v ./...
-        cd ../datetimehttp && go test -v ./...
+        go test -v ./...
 
     
     
