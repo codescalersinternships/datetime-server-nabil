@@ -27,12 +27,11 @@ jobs:
       
     
     - name: Run go fmt
-      uses: Jerome1337/gofmt-action@v1.0.5
+      uses: make format
 
 
     - name: Test
-      run: |
-        go test -v ./...
+      run: make test
 
     
     
