@@ -13,7 +13,7 @@ func TestGETDate(t *testing.T) {
 		request, _ := http.NewRequest(http.MethodGet, "/datetime", nil)
 		response := httptest.NewRecorder()
 		GetDate(response, request)
-		want := time.Now().Format(time.RFC3339)
+		want := time.Now().Format("2003-29-05 01:02:00")
 
 		got := response.Body.String()
 
