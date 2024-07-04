@@ -27,7 +27,7 @@ jobs:
       
     
     - name: Run go fmt
-      uses: make format
+      run: make format
 
 
     - name: Test
