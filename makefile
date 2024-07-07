@@ -1,8 +1,8 @@
 httpserver:
-	go run ./datetimehttp/cmd/main.go
+	go run ./cmd/datetimehttp/main.go
 
 ginserver:
-	go run ./datetimegin/cmd/main.go
+	go run ./cmd/datetimegin/main.go
 
 test:
 	go test -v -cover ./...
