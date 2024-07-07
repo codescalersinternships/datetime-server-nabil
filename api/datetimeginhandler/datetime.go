@@ -32,6 +32,6 @@ func GetDate(c *gin.Context) {
 		c.Writer.WriteHeader(http.StatusMethodNotAllowed)
 		return
 	}
-	currentDateTime := time.Now().Format("2003-29-05 01:02:00")
+	currentDateTime := time.Now().Format("2006-01-02 15:04:05")
 	fmt.Fprint(c.Writer, currentDateTime)
 }
