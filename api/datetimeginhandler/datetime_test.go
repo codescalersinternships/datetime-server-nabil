@@ -3,6 +3,7 @@ package datetime
 import (
 	"net/http"
 	"net/http/httptest"
+	"strconv"
 	"testing"
 	"time"
 )
@@ -18,7 +19,7 @@ func TestGETDate(t *testing.T) {
 		got := response.Body.String()
 
 		assertSuccesMsg(t, response.Result().StatusCode)
-		assertString(t, got, want)
+		assertDate(t, got, want)
 	})
 	t.Run("wrong url", func(t *testing.T) {
 		router := SetupRouter()
@@ -60,9 +61,21 @@ func assertSuccesMsg(t *testing.T, got int) {
 		t.Errorf("expected status code 200 but got %d", got)
 	}
 }
-func assertString(t *testing.T, got, want string) {
+func assertDate(t *testing.T, got, want string) {
 	t.Helper()
-	if got != want {
+	if got[:len(got)-2] != want[:len(got)-2] {
+		t.Errorf("got %q, want %q", got, want)
+		return
+	}
+	gotSec, err := strconv.Atoi(got[len(got)-2:])
+	if err != nil {
+		t.Errorf("can't parse seconds %q", err.Error())
+	}
+	wantSec, err := strconv.Atoi(want[len(got)-2:])
+	if err != nil {
+		t.Errorf("can't parse seconds %q", err.Error())
+	}
+	if gotSec <= wantSec-2 || gotSec >= wantSec+1 {
 		t.Errorf("got %q, want %q", got, want)
 	}
 }
