@@ -21,6 +21,6 @@ func GetDate(w http.ResponseWriter, req *http.Request) {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return
 	}
-	currentDateTime := time.Now().Format("2003-29-05 01:02:00")
+	currentDateTime := time.Now().Format("2006-02-01 15:04:05")
 	fmt.Fprint(w, currentDateTime)
 }
