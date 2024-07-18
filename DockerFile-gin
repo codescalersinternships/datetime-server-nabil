@@ -1,0 +1,33 @@
+#Build Stage
+FROM golang:1.22.4-alpine AS BuildStage
+
+WORKDIR /app
+
+# pre-copy/cache go.mod for pre-downloading dependencies and only redownloading them in subsequent builds if they change
+COPY go.mod go.sum ./
+RUN go mod download
+
+# Copy the rest of the application code
+COPY . ./
+
+# Install golint
+RUN go get -u golang.org/x/lint/golint
+
+# Install gin
+RUN go get -u github.com/gin-gonic/gin
+
+# Install endless
+RUN go get -u github.com/fvbock/endless
+
+# Build the Go binary
+RUN go build -o datetimeserver ./cmd/datetimegin/main.go
+
+EXPOSE 8090
+
+#Deploy Stage
+FROM alpine:latest As datetimeservergin
+WORKDIR /
+COPY --from=BuildStage /app/datetimeserver /datetimeserver
+EXPOSE 8090
+
+ENTRYPOINT [ "/datetimeserver" ]
