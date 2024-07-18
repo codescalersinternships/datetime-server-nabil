@@ -59,7 +59,7 @@ make Launching_the_gin_containers
 ```
 
 
-when you finnish up delete the images and containers if you want
+when you finish up delete the images and containers if you want
 
 you can use these to stop http cantainer using this command
 ```golang
